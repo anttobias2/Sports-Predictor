@@ -4,13 +4,17 @@ Author: Anthony Tobias
 v 1.0.0
 This program contains the main file for a sports predictor that imports data and predicts the outcome and score of an NBA game
 '''
+import csv
+import pandas
 
 # Create a list of tites for the columns and return them
 def read_column_titles(filename):
-    file1 = open(filename, 'r')
-    column_titles = file1.readline()
+    with open(filename, mode='r') as file:
+        csvFile = csv.reader(file)
+        for line in csvFile:
+            output = line
+            return output
 
-    return column_titles.split(',')
 
 def main():
     teams_column_titles = read_column_titles('teams.csv')
